@@ -32,8 +32,17 @@
                     <span>Level <span id="levelP2">2</span></span>
                 </div>
             </div>
+
+            <canvas id="gameCanvas"></canvas>
+            <div id="controlsText">Controls: A/D or Arrow Keys to climb.</div>
         </div>
-    
+
+        <!-- End Screen -->
+        <div id="endScreen" class="hidden">
+            <h2 id="endTitle">Game Over</h2>
+            <img id="endImage" alt="Helicopter">
+            <button id="restartBtn">Main Menu</button>
+        </div>
     </div>
 
     <script scr="game.js"></script>
