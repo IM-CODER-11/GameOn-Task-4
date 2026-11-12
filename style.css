@@ -4,7 +4,17 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: gray;
+    background-color: #0c0c0c;
     font-family: "Courier New", monospace;
     color: white;
 }
+
+#gameContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: transparent;
+    padding: 10px;
+}
+
+.hidden { display: none !important; }
