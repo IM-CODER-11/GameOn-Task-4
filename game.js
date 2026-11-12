@@ -229,7 +229,7 @@ window.addEventListener("keydown", function(e) {
     });
 });
 
-/* Gemini, "Update my input handler so that the player moves to certain points on the platforms based on their input.", 12/11/26, 0:00pm */
+/* Gemini, "Update my input handler so that the player moves to certain points on the platforms based on their input.", 12/11/26, 9:05pm */
 function handlePlayerInput(player, key) {
     if (!player.alive || player.win || player.moving) return;
 
@@ -279,10 +279,10 @@ function gameLoop(timestamp) {
             }
         }
 
-        /* Gemini, "How can I make the game a vertical scroller moving with the player?", 12/11/26, 0:00pm */
+        /* Gemini, "How can I make the game a vertical scroller moving with the player?", 12/11/26, 9:21pm */
         player.camY += ((player.y - 385) - player.camY) * 0.1; // Only this line
 
-        /* Gemini, "How do I write the platform disappearing timer, obstacle movement, and player collision logic?", 12/11/26, 0:00pm */
+        /* Gemini, "How do I write the platform disappearing timer, obstacle movement, and player collision logic?", 12/11/26, 9:21pm */
         player.plats.forEach(function(platform) {  //Start of code
             if (platform.visited && !platform.disappeared && platform.timer !== null) {
                 platform.timer -= deltaTime;
