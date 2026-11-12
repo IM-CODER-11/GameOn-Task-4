@@ -1,6 +1,6 @@
 // Consts for main canvas and tools
 const gameCanvas = document.getElementById("gameCanvas");
-const canvas = document.getElementById("2d");
+const canvas = gameCanvas.getContext("2d");
 
 // Menu and Screen
 const menuScreen = document.getElementById("menuScreen");
