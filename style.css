@@ -43,21 +43,39 @@ button {
 button:hover { background-color: #555; }
 
 .hudBar {
-
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background-color: #2a2a2a;
+    padding: 10px 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    box-sizing: border-box;
 }
 
 #gameCanvas {
-
+    display: block;
+    border-radius: 6px;
+    width: 700px;
+    height: 700px;
 }
 
 #controlText {
-
+    font-size: 13px;
+    color: #aaa;
+    margin-top: 10px;
+    text-align: center;
 }
 
 #endImage {
-
+    width: 150px;
+    margin: 10px 0;
 }
 
 #hudWrapper {
-    
+    display: flex;
+    width: 700px;
+    justify-content: space-between;
 }
