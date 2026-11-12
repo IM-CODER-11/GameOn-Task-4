@@ -19,8 +19,10 @@ const scoreDisplayP2 = document.getElementById("scoreP2");
 const livesDisplayP2 = document.getElementById("livesP2");
 const levelDisplayP2 = document.getElementById("levelP2");
 
-// Image files storage
+// Image files storage and Audio
 const imageAssets = {};
+const loseLifeSound = new Audio("Assets/lose_life.mp3");
+
 const filePaths = {
     bg1: "Assets/Bg_1.png", 
     bg2: "Assets/Bg_2.png", 
@@ -296,6 +298,11 @@ function gameLoop(timestamp) {
         if (currentPlatform.disappeared && !currentPlatform.handled) {
             currentPlatform.handled = true;
             player.lives--;
+
+            // Play life loss sound effect
+            loseLifeSound.currentTime = 0;
+            loseLifeSound.play();
+
             if (player.lives <= 0) {
                 player.alive = false;
             } else {
@@ -332,6 +339,11 @@ function gameLoop(timestamp) {
                     let birdScreenY = bird.y - player.camY;
                     if (!player.moving && Math.abs(player.x - bird.x) < 40 && Math.abs((player.y - player.camY) - birdScreenY) < 40) {
                         player.lives--;
+
+                        // Play life loss sound effect
+                        loseLifeSound.currentTime = 0;
+                        loseLifeSound.play();
+
                         bird.x = -500;
                         if (player.lives <= 0) {
                             player.alive = false;
