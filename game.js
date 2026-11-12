@@ -32,3 +32,45 @@ let imagesLoadedCount = 0;
 let gameMode = "solo";
 let animationFrameId = 0;
 let lastTime = 0;
+
+/* Gemini, "Create an image loading function that doesn't glitch out", 12/11/26, 8:01pm */
+for (let key in filePaths) {
+    let img = new Image();
+    img.onload = function() {
+        imagesLoadedCount++;
+        if (imagesLoadedCount === Object.keys(filePaths).length) {
+            document.getElementById("loadingText").classList.add("hidden");
+            document.getElementById("singlePlayerBtn").disabled = false;
+            document.getElementById("twoPlayerBtn").disabled = false;
+        }
+    };
+    img.onerror = function() {
+        imagesLoadedCount++;
+    };
+    img.src = filePaths[key];
+    imageAssets[key] = img;
+}
+
+document.getElementById("singlePlayerBtn").disabled = true;
+document.getElementById("twoPlayerBtn").disabled = true;
+
+/* Gemini, "Simplify background cover creation", 12/11/26, 8:01pm */
+function drawBackgroundCover(img, x, y, width, height) {
+    if (!img || !img.complete || img.naturalWidth === 0) return;
+    let imgRatio = img.naturalWidth / img.naturalHeight;
+    let targetRatio = width / height;
+    let sourceWidth = img.naturalWidth;
+    let sourceHeight = img.naturalHeight;
+    let sourceX = 0;
+    let sourceY = 0;
+
+    if (imgRatio > targetRatio) {
+        sourceWidth = sourceHeight * targetRatio;
+        sourceX = (img.naturalWidth - sourceWidth) / 2;
+    } else {
+        sourceHeight = sourceWidth / targetRatio;
+        sourceY = (img.naturalHeight - sourceHeight) / 2;
+    }
+
+    canvas.drawImage(img, sourceX, sourceY, sourceWidth, sourceHeight, x, y, width, height);
+}
